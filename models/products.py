@@ -15,14 +15,22 @@ class Product():
         flag:str
         
     class Checkout(BaseModel):
-        prod_Id:list
-        user_Id:UUID
+        prod_id:list
+        user_id:UUID
         price:float
 
     class RedeemCode(BaseModel):
         code:UUID
         discout:float
 
+    class Orders(BaseModel):
+        id:UUID
+        user_id:UUID
+        prod_id:list
+        total_price:float
+        delivery_status:bool
+
+    
 
 
     

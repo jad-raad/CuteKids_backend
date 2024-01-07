@@ -43,4 +43,16 @@ def checkout(Product:Product().Checkout):
 
 @app.post("/redeemCode")
 def redeemCode(Product:Product().RedeemCode):
-    return Supabase().Redee
+    return Supabase().RedeemCode()
+
+@app.get("/get_orders")
+def getOrders():
+    return Supabase().getOrders()
+
+@app.post("/add_products")
+def addProducts(Product:Product().AddProducts):
+    return Supabase().add_products()
+
+@app.post("/update_delivery_status")
+def updateDeliveryStatus(Product:Product().Orders):
+    return Supabase().update_delivery_status()

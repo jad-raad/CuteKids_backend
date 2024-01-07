@@ -29,7 +29,21 @@ class Supabase():
         res = self.supabase.table("orders").insert({"prod_Id": prod_Id, "user_Id": user_Id, "price": price}).execute()
         return res
     
-    #def redeemCode(self, code, discount):
-        
+    def redeemCode(self, code, discount):
+        res = self.supabase.table("promo_codes").insert({"code": code,"discount": discount}).execute()
+        return res
+
+    def getOrders(self):
+        res = self.supabase.table("orders").select("*").execute()
+        return res.data
+    
+    #ID to be discussed 
+    def add_products(self,id,name,price,image,description,sizes,flag):
+        res = self.supabase.table("products").insert({"name": name,"price": price,"image": image,"description": description,"sizes": sizes,"flag": flag})
+
+    def update_delivery_status(slef,delivery_status):
+        res = self.supabase.table("orders").insert({"delivery_status": delivery_status})
+        return res
+
     
     
